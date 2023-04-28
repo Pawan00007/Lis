@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from .models import Patient, Message_headers, Specimen, LabOrder, Observation, Order
+from .models import Patient, Message_headers, Specimen, LabOrder, Observation, Order,Dispense
 from .serializers import (
     MessageHeadersSerializer,
     PatientSerializer,
@@ -7,6 +7,7 @@ from .serializers import (
     LabOrderSerializer,
     ObservationSerializer,
     OrderSerializer,
+    DpdSerializer,
 )
 
 
@@ -38,3 +39,6 @@ class ObservationViewset(viewsets.ModelViewSet):
 class OrderViewset(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+class DpdViewset(viewsets.ModelViewSet):
+    queryset=Dispense.objects.all()
+    serializer_class=DpdSerializer

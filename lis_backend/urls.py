@@ -8,6 +8,7 @@ from lis_app.views import (
     LabOrderViewset,
     ObservationViewset,
     OrderViewset,
+    DpdViewset
 )
 
 router = DefaultRouter()
@@ -17,6 +18,7 @@ router.register(r"specimens", SpecimenViewset)
 router.register(r"laborders", LabOrderViewset)
 router.register(r"observations", ObservationViewset)
 router.register(r"orders", OrderViewset)
+router.register(r"dpd", DpdViewset)
 
 
 urlpatterns = [

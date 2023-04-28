@@ -1,5 +1,13 @@
 from rest_framework import serializers
-from .models import Patient, Message_headers, Specimen, LabOrder, Observation, Order
+from .models import (
+    Patient,
+    Message_headers,
+    Specimen,
+    LabOrder,
+    Observation,
+    Order,
+    Dispense,
+)
 
 
 class PatientSerializer(serializers.ModelSerializer):
@@ -35,4 +43,10 @@ class ObservationSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
+        fields = "__all__"
+
+
+class DpdSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Dispense
         fields = "__all__"

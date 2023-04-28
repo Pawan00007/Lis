@@ -218,3 +218,39 @@ class Order(models.Model):
     patient = models.ForeignKey(
         Patient, on_delete=models.CASCADE, related_name="orders"
     )
+
+
+class Dispense(models.Model):
+    order_sequence_number = models.IntegerField()
+    dispense_sequence_number = models.IntegerField()
+    compound_code = models.CharField(max_length=100)
+    dispense_to_location = models.CharField(max_length=100)
+    dispense_to_address = models.CharField(max_length=100)
+    pharmacy_order_type = models.CharField(max_length=100)
+    original_order_date_time = models.DateTimeField()
+    give_per_time_unit = models.CharField(max_length=100)
+    give_rate_amount = models.CharField(max_length=100)
+    give_rate_units = models.CharField(max_length=100)
+    give_strength = models.IntegerField()
+    give_strength_units = models.CharField(max_length=100)
+    substance_lot_number = models.CharField(max_length=100)
+    substance_expiration_date = models.DateTimeField()
+    substance_manufacturer_name = models.CharField(max_length=100)
+    indication_for_use = models.CharField(max_length=100)
+    dispense_package_size = models.IntegerField()
+    dispense_package_size_unit_of_measure = models.CharField(max_length=100)
+    dispense_package_method = models.CharField(max_length=100)
+    supplementary_code = models.CharField(max_length=100)
+    initiating_location = models.CharField(max_length=100)
+    packaging_assembly_location = models.CharField(max_length=100)
+    actual_drug_strength_volume = models.IntegerField()
+    actual_drug_strength_volume_units = models.CharField(max_length=100)
+    dispense_to_pharmacy_phone_number = models.CharField(max_length=100)
+    dispense_to_pharmacy_contact_name = models.CharField(max_length=100)
+    prescription_number = models.CharField(max_length=100)
+    number_of_refills_remaining = models.IntegerField()
+    dispense_notes = models.CharField(max_length=100)
+    dispensing_provider = models.CharField(max_length=100)
+    patient = models.ForeignKey(
+        Patient, on_delete=models.CASCADE, related_name="dispenses"
+    )
