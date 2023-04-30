@@ -1,6 +1,14 @@
 from django.db import models
 
+#Machine Informations
+class MachineInfo(models.Model):
+    name = models.CharField(max_length=100)
+    protocol = models.CharField(max_length=20, choices=[('HL7', 'HL7'), ('ASTM', 'ASTM'),('DICOM','DICOM'),('NCPDP','NCPDP'),('FHIR','FHIR'),('X12','X12'),('CDA','CDA')])
+    port = models.CharField(max_length=30, choices=[('serial_port','Serial_Port'), ('socket','Socket')])
+    communication_direction = models.CharField(max_length=50, choices=[('unidirectional', 'Unidirectional'), ('bidirectional', 'Bidirectional')], blank=True)
 
+    def __str__(self):
+        return self.name
 # PID FIELD
 class Patient(models.Model):
     Set_ID = models.IntegerField(primary_key=True)

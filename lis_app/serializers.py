@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import (
+    MachineInfo,
     Patient,
     Message_headers,
     Specimen,
@@ -8,7 +9,10 @@ from .models import (
     Order,
     Dispense,
 )
-
+class MachineInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=MachineInfo
+        fields=["name","protocol","port","communication_direction"]
 
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
