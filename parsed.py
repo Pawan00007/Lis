@@ -1,3 +1,4 @@
+
 with open(
     r"C:\Users\paban\OneDrive\Desktop\machines\MS - Fast\payloads\BA200.txt", "r"
 ) as file:
@@ -65,29 +66,29 @@ DPD_field_name = [
     "Number_of_refills_remaining_(NM)","Dispense_notes_(ST)","Dispensing_provider_(XCN)",]
 
 
-def maping_segments():
-    mapped_messages = []
-    for segment in message:
-        segments = segment.split("|")
-        if "MSH" in segments[0]:
-            MSH_pairs = dict(zip(MSH_field_name, segments[2:]))
-            # print(MSH_pairs)
-            mapped_messages.append(MSH_pairs)
-            # print(MSH_pairs)
-        if segments[0] == "PID":
-            PID_pairs = dict(zip(PID_field_name, segments[1:]))
-            mapped_messages.append(PID_pairs)
-        if segments[0] == "OBR":
-            OBR_paris = dict(zip(OBR_field_name, segments[1:]))
-            # print(OBR_paris)
-            # mapped_messages.append(OBR_paris)
-        if segments[0] == "ORC":
-            ORC_pairs = dict(zip(ORC_field_name, segments[1:]))
-            mapped_messages.append(ORC_pairs)
-        if segments[0] == "OBX":
-            OBX_pairs = dict(zip(OBX_field_name, segments[1:]))
-            mapped_messages.append(OBX_pairs)
-        if segments[0] == "SPM":
-            SPM_pairs = dict(zip(SPM_field_name, segments[1:]))
-            mapped_messages.append(SPM_pairs)
-    return mapped_messages
+# def maping_segments():
+#     mapped_messages = []
+#     for segment in message:
+#         segments = segment.split("|")
+#         if "MSH" in segments[0]:
+#             MSH_pairs = dict(zip(MSH_field_name, segments[2:]))
+#             # print(MSH_pairs)
+#             mapped_messages.append(MSH_pairs)
+#             # print(MSH_pairs)
+#         if segments[0] == "PID":
+#             PID_pairs = dict(zip(PID_field_name, segments[1:]))
+#             mapped_messages.append(PID_pairs)
+#         if segments[0] == "OBR":
+#             OBR_paris = dict(zip(OBR_field_name, segments[1:]))
+#             # print(OBR_paris)
+#             # mapped_messages.append(OBR_paris)
+#         if segments[0] == "ORC":
+#             ORC_pairs = dict(zip(ORC_field_name, segments[1:]))
+#             mapped_messages.append(ORC_pairs)
+#         if segments[0] == "OBX":
+#             OBX_pairs = dict(zip(OBX_field_name, segments[1:]))
+#             mapped_messages.append(OBX_pairs)
+#         if segments[0] == "SPM":
+#             SPM_pairs = dict(zip(SPM_field_name, segments[1:]))
+#             mapped_messages.append(SPM_pairs)
+#     return mapped_messages
